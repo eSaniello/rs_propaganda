@@ -1,0 +1,20 @@
+
+
+.input-field[type=text] + label, .materialize-textarea:focus:not([readonly]) + label{
+    color: #ffffff !important;
+
+}
+
+.loginForm{
+    margin-left: 70% !important;
+    margin-top: 15% !important;
+}
+
+.btn_login{
+    margin-left: 1% !important;
+}
+
+.btn_login:hover{
+    margin-left: 1% !important;
+    -webkit-text-fill-color: #2196F3;
+}
