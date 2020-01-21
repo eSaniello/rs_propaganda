@@ -12,9 +12,10 @@
 
 .btn_login{
     margin-left: 1% !important;
+    -webkit-text-fill-color: #2196F3;
 }
 
 .btn_login:hover{
     margin-left: 1% !important;
-    -webkit-text-fill-color: #2196F3;
+    -webkit-text-fill-color: rgb(0, 0, 0); 
 }
