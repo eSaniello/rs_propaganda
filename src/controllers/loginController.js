@@ -20,9 +20,10 @@ function inloggen() {
     })
     .then(data => data.json())
     .then(data => {
-      console.log(data)
+      localStorage.setItem("token", data.token);
     })
     .catch((err) => {
       console.error(err);
     })
 }
+
