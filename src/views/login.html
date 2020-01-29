@@ -25,23 +25,23 @@
                 <img class="logo" src="../../media/logo.png" alt="RS_propoganda Logo">
             </div>
 
-                <form class="form col s12 loginForm" action="" method="POST">
+                <form class="form col s12 loginForm" id="loginForm" name="loginForm" action="" method="POST">
                     <div class="row">
                         <div class="input-field col s5 offset-s7">
-                            <input id="gebruikersnaam" type="text" class="validate">
+                            <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate">
                             <label for="gebruikersnaam">Gebruikersnaam</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s5 offset-s7">
-                            <input id="wachtwoord" type="password" class="validate">
+                            <input id="wachtwoord" name="wachtwoord" type="password" class="validate">
                             <label for="wachtwoord">Wachtwoord</label>
                         </div>
                     </div>
                     <div class="row col s2 offset-s7">
-                        <button class="btn waves-effect white grey-text btn_login" type="submit" name="inloggen">
-                            Inloggen
-                        </button>
+                        <input type="button" class="btn waves-effect white grey-text btn_login" id='btn_login' onclick="inloggen()" value="Inloggen">
+                            
+                    
                     </div>
 
                 </form>
@@ -57,6 +57,8 @@
     <script>
         M.AutoInit();
     </script>
+    <script type="text/javascript" src="../controllers/loginController.js"></script>
+
 </body>
 </html>
 
