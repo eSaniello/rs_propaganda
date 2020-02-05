@@ -20,8 +20,7 @@ function inloggen() {
     .then(data => data.json())
     .then(data => {
       localStorage.setItem("token", data.token);
-      // route to home
-      // window.location.replace("..");
+      window.location.replace("./src/views/dashboard.html");
 
     })
     .catch((err) => {
