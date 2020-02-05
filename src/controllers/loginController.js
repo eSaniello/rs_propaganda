@@ -6,7 +6,6 @@ function inloggen() {
     data[key] = prop;
   }
   VALUE = JSON.stringify(data, null, 2);
-  console.log(VALUE);
 
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
@@ -21,9 +20,11 @@ function inloggen() {
     .then(data => data.json())
     .then(data => {
       localStorage.setItem("token", data.token);
+      // route to home
+      // window.location.replace("..");
+
     })
     .catch((err) => {
       console.error(err);
     })
 }
-
