@@ -1,0 +1,22 @@
+.logo{
+    /* margin-top: 15% !important; */
+}
+
+.loginForm{
+    /* margin-left: 10% !important; */
+    /* margin-top: 15% !important; */
+}
+
+.btn_login{
+    margin-left: 1% !important;
+    -webkit-text-fill-color: #2196F3;
+}
+
+.btn_login:hover{
+    margin-left: 1% !important;
+    -webkit-text-fill-color: rgb(0, 0, 0); 
+}
+
+body{
+    background-color: #4c81f4;
+}
