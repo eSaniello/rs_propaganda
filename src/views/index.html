@@ -31,10 +31,22 @@
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s8">
+                  <i class="material-icons prefix">person</i> 
+                  <label>Presentie</label>
+                  <br>
+                  <select>
+                    <option value="" disabled selected></option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                </div>
+                <div class="input-field col s8">
                   <i class="material-icons prefix">comment</i>
-                  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                  <textarea id="icon_prefix2" class="materialize-textarea" name="comment"></textarea>
                   <label for="icon_prefix2">Commentaar</label>
                 </div>
+                <br>
                 <p>
                     <label>
                       <input class="with-gap" name="group3" type="radio" checked />
@@ -51,7 +63,7 @@
           </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green footertext"><i class="material-icons prefix">send</i></a>
+      <a href="../../scripts.js" class="modal-close waves-effect waves-green footertext"><i class="material-icons prefix">send</i></a>
     </div>
   </div>
   
@@ -94,8 +106,10 @@
       <a href="#!" class="modal-close waves-effect waves-green footertext"><i class="material-icons prefix">send</i></a>
     </div>
   </div>
+
   <div id="root"></div>
-  <script src="scripts.js"></script>
+  <script src="../../scripts.js"></script>
+  
 
     <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="../../src/views/canvasjs-2.3.2/canvasjs.min.js"></script>
