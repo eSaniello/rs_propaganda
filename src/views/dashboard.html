@@ -12,6 +12,11 @@
     <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- controller js -->
+    <script type="text/javascript" src="../controllers/ressortController.js"></script>
+    <script type="text/javascript" src="../controllers/main.js"></script>
+
 </head>
 
 <body class="blue lighten-4">
@@ -99,18 +104,25 @@
         <a href="#" data-target="slide-out" class="sidenav-trigger ">
             <i class="material-icons message_btn ">message</i>
         </a>
-
-
-
     </div>
 
     <div class="container">
-
         <div class="row">
-            this is ressort
+            <div class="col s12" style="height: 25em; overflow: auto;">
+                <table id="ressortTable" class="highlight">
+                    <thead>
+                        <tr>
+                            <th>Ressort</th>
+                            <th>District</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="rTableBody">
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-
     </div>
 
     <div class="fixed-action-btn">
@@ -132,11 +144,11 @@
             <br>
             <div>
                 <div class="row">
-                    <form class="col s12" action="" method="POST" id="ressortForm" name="ressortForm">
+                    <form class="col s12" method="POST" id="ressortForm" name="ressortForm">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input type="text" name="ressort" id="ressort" required>
-                                <label for="ressort">Ressort</label>
+                                <input type="text" name="ressortnaam" id="ressortnaam" required>
+                                <label for="ressortnaam">Ressort</label>
                             </div>
                         </div>
                         <div class="row">
@@ -157,7 +169,9 @@
                             </div>
                         </div>
                         <button class="btn waves-effect waves-light, nav" type="submit" name="action"
-                            onclick="creatRessort()">Opslaan</button>
+                            onclick="createRessort()">Opslaan</button>
+                        <button class="btn waves-effect waves-light, nav" type="button" name="action"
+                            onclick="token()">Token</button>
                     </form>
                 </div>
             </div>
@@ -205,16 +219,13 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- controller js -->
-        <script type="text/javascript" src="../controllers/ressortController.js"></script>
-        <script type="text/javascript" src="../controllers/main.js"></script>
-
-        <!-- materialize js -->
-        <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
-        <script>
-            M.AutoInit();
-        </script>
+    <!-- materialize js -->
+    <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
+    <script>
+        M.AutoInit();
+    </script>
 </body>
 
 </html>

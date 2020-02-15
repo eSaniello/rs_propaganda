@@ -21,7 +21,6 @@ function inloggen() {
     .then(data => {
       localStorage.setItem("token", data.token);
       window.location.replace("./src/views/dashboard.html");
-
     })
     .catch((err) => {
       console.error(err);
