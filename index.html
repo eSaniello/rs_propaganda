@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./lib/materialize//css/materialize.min.css"
         media="screen,projection" />
-    
+
     <link rel="stylesheet" href="./src/style/login.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,38 +18,40 @@
 <body class="">
 
     <div class="container">
-
-        <div class="row col s12">
-
-            <div class="col s6 ">
-                <img class="logo" src="./media/logo.png" alt="RS_propoganda Logo">
+        <div class="row">
+            <h1 class="center-align white-text" style="padding-top: 4%;">RS-Propoganda</h1>
+            <!-- Image Logo -->
+            <div class="col s4 center-align" style="padding-top: 5%;">
+                <img src="./media/logo.png" alt="RS_propoganda Logo">
             </div>
 
-                <form class="form col s12 loginForm" id="loginForm" name="loginForm" action="" method="POST">
+            <!-- Login Form -->
+            <div class="col s6 offset-s2" style="padding-top: 5%">
+                <form id="loginForm" name="loginForm" method="post" onsubmit="return inloggen()">
                     <div class="row">
-                        <div class="input-field col s5 offset-s7">
+                        <div class="input-field col s9">
                             <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate" required>
                             <label for="gebruikersnaam">Gebruikersnaam</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s5 offset-s7">
+                        <div class="input-field col s9">
                             <input id="wachtwoord" name="wachtwoord" type="password" class="validate" required>
                             <label for="wachtwoord">Wachtwoord</label>
                         </div>
                     </div>
-                    <div class="row col s2 offset-s7">
-                        <button class="btn waves-effect white grey-text btn_login" id='btn_login' onclick="inloggen()">Inloggen</button>
+                    <div class="row col s6">
+                        <button class="btn waves-effect waves-light" type="submit">Inloggen</button>
                     </div>
 
                 </form>
-            
+            </div>
 
         </div>
     </div>
 
 
-    
+
 
     <script type="text/javascript" src="./lib/materialize/js/materialize.min.js"></script>
     <script>
@@ -58,6 +60,7 @@
     <script type="text/javascript" src="./src/controllers/loginController.js"></script>
 
 </body>
+
 </html>
 
 </html>
