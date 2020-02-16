@@ -21,6 +21,16 @@
     <script type="text/javascript" src="../controllers/main.js"></script>
     <script>
         M.AutoInit();
+
+        token = localStorage.getItem("token");
+        function redirectIfNoToken() {
+            if (token == null) {
+                window.location.replace("../../index.html");               
+            }
+        }
+
+        redirectIfNoToken();
+
     </script>
 </body>
 
