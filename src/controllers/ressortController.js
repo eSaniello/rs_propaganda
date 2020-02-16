@@ -19,8 +19,13 @@ fetch('http://127.0.0.1:3000/api/ressort', {
 
             data.data.forEach(i => {
                 body += "<tr>";
+                body += "<td>" + i.ressort_id + "</td>";
                 body += "<td>" + i.ressortnaam + "</td>";
                 body += "<td>" + i.district + "</td>";
+                body += `<td>
+                    <a class='modal-trigger' href='#modal_updateressort' title='Wijzigen' data-toggle='tooltip' style='cursor: pointer;' onclick='return getData(this)'><i class='small material-icons' style='color: #ffd600;'>edit</i></a>
+                    <a title='Verwijderen' data-toggle='tooltip' style='cursor: pointer;' onclick='return deleteCheck(this)'><i class='small material-icons' style='color: #c62828;'>delete</i></a>
+                </td>`;
                 body += "</tr>";
             })
 
@@ -30,8 +35,6 @@ fetch('http://127.0.0.1:3000/api/ressort', {
     .catch((err) => console.log(err))
 
 function createRessort() {
-    // const token = localStorage.getItem("token");
-
     let form = document.forms["ressortForm"];
     let fd = new FormData(form);
     let data = {};
@@ -55,13 +58,54 @@ function createRessort() {
         body: VALUE
     })
         .then(res => res.json())
-        .then(res => console.log('Success', res))
+        .then(res => {
+            console.log('Success', res);
+            location.reload();
+
+        })
         .catch((err) => {
             console.error(err);
         })
+
+    return false;
 }
 
 function token() {
     var token = localStorage.getItem('token');
     console.log(token);
+}
+
+function deleteCheck(td) {
+    selectedRow = td.parentElement.parentElement;
+    id = selectedRow.cells[0].innerHTML;
+
+    function deleteRessort() {
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + token2);
+
+        fetch('http://127.0.0.1:3000/api/ressort/' + id, {
+            method: 'DELETE',
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default'
+        })
+            .then(res => res.json())
+            .then(res => {
+                alert('Ressort succesvol verwijderd!');
+                location.reload();
+            })
+            .catch((err) => console.error(err))
+
+        return false;
+    }
+
+    if (confirm('Bent u zeker?')) {
+        deleteRessort();
+    }
+}
+
+function getData(td) {
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById('updateRessortnaam').value = selectedRow.cells[1].innerHTML;
+    // document.getElementById('updateDistrict').selected = selectedRow.cells[2].innerHTML;
 }

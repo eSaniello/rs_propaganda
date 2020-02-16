@@ -1,7 +1,3 @@
-window.onload = function () {
-  document.getElementById('loginForm').addEventListener('submit', inloggen);
-}
-
 function inloggen() {
   let form = document.forms["loginForm"];
   let fd = new FormData(form);
