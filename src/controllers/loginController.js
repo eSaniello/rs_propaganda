@@ -1,12 +1,20 @@
-
 function inloggen() {
-  let form = document.forms["loginForm"];
-  let fd = new FormData(form);
-  let data = {};
-  for (let [key, prop] of fd) {
-    data[key] = prop;
-  }
-  VALUE = JSON.stringify(data, null, 2);
+  // let form = document.forms["loginForm"];
+  // let fd = new FormData(form);
+  // let data = {};
+  // for (let [key, prop] of fd) {
+  //   data[key] = prop;
+  // }
+  // VALUE = JSON.stringify(data, null, 2);
+
+  let gebruikernaamIn = document.getElementsByName("gebruikernaam").value;
+  let wachtwoordIn = document.getElementsByName("wachtwoord").value;
+
+  let loginData = {
+    "gebruikernaam": gebruikernaamIn,
+    "wachtwoord": wachtwoordIn
+  };
+  VALUE = JSON.stringify(loginData, null, 2);
 
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
@@ -20,17 +28,17 @@ function inloggen() {
     })
     .then(data => data.json())
     .then(data => {
-// i'm attempting to create an array of key value pairs where the username is stored with the token.
+      // i'm attempting to create an array of key value pairs where the username is stored with the token.
       // tokenList.append(data.gebruikernaam, data.token);
-      
+
       if (data.token) {
         localStorage.setItem("token", data.token);
         window.location.replace("./src/views/dashboard.html");
 
-      }else{
+      } else {
         console.log("Cannot get token from API");
       }
-      
+
     })
     .catch((err) => {
       console.error(err);
