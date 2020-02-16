@@ -1,5 +1,13 @@
+function redirectIfToken() {
+  jwToken = localStorage.getItem("token");
+  if (jwToken != null) {
+    window.location.replace("./src/views/dashboard.html");
+    alert("Er is al een gebruiker ingelogd!");
+  }
+}
 window.onload = function () {
   document.getElementById('loginForm').addEventListener('submit', inloggen);
+  redirectIfToken();
 }
 
 
@@ -29,7 +37,7 @@ function inloggen() {
         window.location.replace("./src/views/dashboard.html");
 
       } else {
-       
+
         alert("Gebruikersnaam of Wachtwoord Onjuist!");
       }
 
