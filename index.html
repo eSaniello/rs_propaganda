@@ -25,7 +25,7 @@
                 <img class="logo" src="./media/logo.png" alt="RS_propoganda Logo">
             </div>
 
-                <form class="form col s12 loginForm" id="loginForm" name="loginForm" action="" method="POST" onsubmit="inloggen()">
+                <form class="form col s12 loginForm" id="loginForm" name="loginForm" action="" method="POST">
                     <div class="row">
                         <div class="input-field col s5 offset-s7">
                             <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate" required>
@@ -39,9 +39,7 @@
                         </div>
                     </div>
                     <div class="row col s2 offset-s7">
-                        <input type="submit" class="btn waves-effect white grey-text btn_login" id='btn_login' value="Inloggen">
-                            
-                    
+                        <button class="btn waves-effect white grey-text btn_login" id='btn_login' onclick="inloggen()">Inloggen</button>
                     </div>
 
                 </form>
