@@ -19,44 +19,39 @@
 </head>
 
 <body class="">
-
     <div class="container">
-
-        <div class="row col s12">
-
-            <div class="col s6 ">
-                <img class="logo" src="./media/logo.png" alt="RS_propoganda Logo">
+        <div class="row">
+            <!-- Image Logo -->
+            <div class="col s6 center-align" style="padding-top: 200px;">
+                <img src="./media/logo.png" alt="RS_propoganda Logo">
             </div>
 
-            <form class="form col s12 loginForm" id="loginForm" name="loginForm" action="test.html" method="POST">
-                <div class="row">
-                    <div class="input-field col s5 offset-s7">
-                        <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate">
-                        <label for="gebruikersnaam">Gebruikersnaam</label>
+            <!-- Login Form -->
+            <div class="col s6" style="padding-top: 200px;">
+                <form id="loginForm" name="loginForm" method="post" onsubmit="return inloggen()">
+                    <div class="row">
+                        <div class="field col s6">
+                            <input type="text" name="gebruikernaam" id="gebruikernaam" placeholder="Gebruikersnaam"
+                                class="validate" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s5 offset-s7">
-                        <input id="wachtwoord" name="wachtwoord" type="password" class="validate">
-                        <label for="wachtwoord">Wachtwoord</label>
+                    <div class="row">
+                        <div class="field col s6">
+                            <input type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord"
+                                class="validate" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row col s2 offset-s7">
-                    <input type="button" class="btn waves-effect white grey-text btn_login" id='btn_login'
-                        onclick="inloggen()" value="Inloggen">
-
-
-                </div>
-
-            </form>
-
-
+                    <div class="row">
+                        <div class="field col s6">
+                            <button class="btn waves-effect waves-light" type="submit">Inloggen</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
-
-
-
+    <!-- Materialize JS -->
     <script type="text/javascript" src="./lib/materialize/js/materialize.min.js"></script>
     <script>
         M.AutoInit();
