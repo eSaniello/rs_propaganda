@@ -1,3 +1,4 @@
+
 function inloggen() {
   let form = document.forms["loginForm"];
   let fd = new FormData(form);
@@ -19,9 +20,17 @@ function inloggen() {
     })
     .then(data => data.json())
     .then(data => {
-      localStorage.setItem("token", data.token);
-      window.location.replace("./src/views/dashboard.html");
+// i'm attempting to create an array of key value pairs where the username is stored with the token.
+      // tokenList.append(data.gebruikernaam, data.token);
+      
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        window.location.replace("./src/views/dashboard.html");
 
+      }else{
+        console.log("Cannot get token from API");
+      }
+      
     })
     .catch((err) => {
       console.error(err);
