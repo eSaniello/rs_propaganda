@@ -25,21 +25,21 @@
                 <img class="logo" src="./media/logo.png" alt="RS_propoganda Logo">
             </div>
 
-                <form class="form col s12 loginForm" id="loginForm" name="loginForm" action="test.html" method="POST">
+                <form class="form col s12 loginForm" id="loginForm" name="loginForm" action="" method="POST" onsubmit="inloggen()">
                     <div class="row">
                         <div class="input-field col s5 offset-s7">
-                            <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate">
+                            <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate" required>
                             <label for="gebruikersnaam">Gebruikersnaam</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s5 offset-s7">
-                            <input id="wachtwoord" name="wachtwoord" type="password" class="validate">
+                            <input id="wachtwoord" name="wachtwoord" type="password" class="validate" required>
                             <label for="wachtwoord">Wachtwoord</label>
                         </div>
                     </div>
                     <div class="row col s2 offset-s7">
-                        <input type="button" class="btn waves-effect white grey-text btn_login" id='btn_login' onclick="inloggen()" value="Inloggen">
+                        <input type="submit" class="btn waves-effect white grey-text btn_login" id='btn_login' value="Inloggen">
                             
                     
                     </div>
