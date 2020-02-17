@@ -1,10 +1,45 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+#logo{
+    width: 5vw;
+}
+
+.nav{
+    background-color: #4c81f4;
+}
+
+.nav_height{
+    height: 10vh;
+}
+
+.menu_ul{
+    margin-top: 1vh;
+}
+
+.card_width{
+    /* width: 20vw; */
+    margin: 10px;
+}
+
+.card_edge{
+    border-radius: 15px;
+}
+
+.message_btn{
+    font-size: 3.5rem;
+    color: teal;
+}
+
 .modal-header{
-  border-radius: 0 0 2px 2px;
-  color: white;
-  padding: 5px 8px;
-  height: 56px;
-  width: 100%;
-  text-align: left;
+    border-radius: 0 0 2px 2px;
+    color: white;
+    padding: 5px 8px;
+    height: 56px;
+    width: 100%;
+    text-align: left;
 }
 .icon{
     float: right;

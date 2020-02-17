@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RS Propaganda</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../../lib/materialize//css/materialize.min.css"
+        media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body class="blue lighten-4">
+    <div class="row">
+        <nav class="nav_height">
+            <div class="nav-wrapper nav">
+                <img id="logo" class="brand-logo" src="../../media/logo.png" alt="">
+                <ul id="nav-mobile" class="right hide-on-med-and-down menu_ul">
+                    <li><a href="index.html">Start Pagina</a></li>
+                    <li><a onclick="logout()">Uitloggen</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <ul id="slide-out" class="sidenav col s4" style="overflow: scroll;">
+            <li>
+                <blockquote>
+                    <p class="flow-text">Belangrijke Mededelingen</p>
+                </blockquote>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input placeholder="Bericht..." id="enter_message" type="text" class="validate">
+                        <label for="enter_message">Nieuw bericht</label>
+                        <button class="btn-small waves-effect waves-light red" type="button" name="action">versturen
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Bericht 1 -->
+                <div class="row">
+                    <div class="card_width">
+                        <div class="card teal darken-1 card_edge">
+                            <div class="card-content white-text">
+                                <span class="card-title">Shaniel Samadhan</span>
+                                <p>Waddup all mi badmans and badgyals, all good wit ya'll bomboclaats?</p>
+                            </div>
+                            <div class="card-action">
+                                <p class="white-text">29-06-2020 01:30 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Bericht 2 -->
+                <div class="row">
+                    <div class="card_width">
+                        <div class="card teal darken-1 card_edge">
+                            <div class="card-content white-text">
+                                <span class="card-title">Andojo Mack</span>
+                                <p>It's ya boi McDoodle in the building!</p>
+                            </div>
+                            <div class="card-action">
+                                <p class="white-text">23-06-2020 11:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Bericht 3 -->
+                <div class="row">
+                    <div class="card_width">
+                        <div class="card teal darken-1 card_edge">
+                            <div class="card-content white-text">
+                                <span class="card-title">Kenson Latchmansing</span>
+                                <p>Gangaaa mie baka e hatie wooo. EJE! </p>
+                            </div>
+                            <div class="card-action">
+                                <p class="white-text">29-06-2020 12:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger ">
+            <i class="material-icons message_btn ">message</i>
+        </a>
+
+
+
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            this is ressort
+        </div>
+
+
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large nav">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating waves-effect waves-light btn modal-trigger red" href="#modal_ressort">ressort</a>
+            </li>
+            <li><a class="btn-floating waves-effect waves-light btn modal-trigger yellow darken-1"
+                    href="#modal_presentie">presentie</a></li>
+            <li><a class="btn-floating waves-effect waves-light btn modal-trigger green darken-1"
+                    href="#modal_commentaar">commentaar</a></li>
+        </ul>
+    </div>
+
+    <!-- ressort modal -->
+    <div id="modal_ressort" class="modal" style="height: 900px;">
+        <div class="modal-content">
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Nieuw ressort opslaan</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" action="" method="POST" id="ressortForm" name="ressortForm">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="ressort" id="ressort" required>
+                                <label for="ressort">Ressort</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="district">
+                                    <option value="Paramaribo">Paramaribo</option>
+                                    <option value="Commewijne">Commewijne</option>
+                                    <option value="Wanica">Wanica</option>
+                                    <option value="Saramacca">Saramacca</option>
+                                    <option value="Marowijne">Marowijne</option>
+                                    <option value="Para">Para</option>
+                                    <option value="Brokopondo">Brokopondo</option>
+                                    <option value="Coronie">Coronie</option>
+                                    <option value="Nickerie">Nickerie</option>
+                                    <option value="Sipaliwini">Sipaliwini</option>
+                                </select>
+                                <label for="district">District</label>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action"
+                            onclick="creatRessort()">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- presentie modal -->
+    <div id="modal_presentie" class="modal" style="height: 900px;">
+        <div class="modal-content">
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Presentie</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" action="" method="POST">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="ressort">
+                                    <option></option>
+                                </select>
+                                <label for="ressort">Ressort</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="vergadering">
+                                    <option></option>
+                                </select>
+                                <label for="vergadering">Vergadering</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s3">
+                                <input type="text" name="naam" id="naam" required>
+                                <label for="naam">Naam</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input type="text" name="voornaam" id="voornaam" required>
+                                <label for="voornaam">Voornaam</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="email" name="email" id="email" required>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--commentaar modal-->
+    <div id="modal_commentaar" class="modal">
+        <div class="modal-content">
+            <div class="row style2">
+                <form class="col s12" method="POST" id="commentaarForm" name="commentaarForm"
+                onsubmit="return createComment()">
+                    <div class="row">
+                        <div class="input-field col s8">
+                            <i class="material-icons prefix">person</i> 
+                            <label>Presentie</label>
+                            <br>
+                            <select>
+                                <option value="" disabled selected></option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s8">
+                            <i class="material-icons prefix">comment</i>
+                            <textarea id="icon_prefix2" class="materialize-textarea" name="comment"></textarea>
+                            <label for="icon_prefix2">Commentaar</label>
+                        </div>
+                            <br>
+                            <p>
+                            <label>
+                            <input class="with-gap" name="group3" type="radio" checked />
+                            <span>Positief</span>
+                            </label>
+                            <br>
+                            <label>
+                            <input class="with-gap" name="group3" type="radio" />
+                            <span>Negatief</span>
+                            </label>
+                            </p>
+                    </div>
+                    <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                    <button class="btn waves-effect waves-light, nav" type="button" name="action"
+                        onclick="token()">Token</button>
+                </form>
+            </div>
+        </div>
+        <!--<div class="modal-footer">
+        <a href="#" class="modal-close waves-effect waves-green footertext"><i class="material-icons prefix">send</i></a>
+        </div>-->
+    </div>
+
+        <!-- controller js -->
+        <script type="text/javascript" src="../controllers/ressortController.js"></script>
+        <script type="text/javascript" src="../controllers/main.js"></script>
+        <script type="text/javascript" src="../controllers/commentaarController.js"></script>
+
+        <!-- materialize js -->
+        <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
+        <script>
+            M.AutoInit();
+            window.onload = redirectIfNoToken();
+            
+        </script>
+</body>
+
+</html>
