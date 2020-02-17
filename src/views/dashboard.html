@@ -38,7 +38,8 @@
                             <li><a href="#!">Commentaar</a></li>
                             <li><a href="#!">Presentie</a></li>
                             <li><a href="./ressort.html">Ressort</a></li>
-                            <li><a href="#!">Vergadering</a></li>
+                            <li><a href="./ressort.html">Ressort</a></li>
+                            <li><a href="./gebruikers.html">Gebruikers</a></li>
                         </ul>
                         <ul id="instellingen" class="dropdown-content">
                             <li><a href="#!">Accounts</a></li>
@@ -195,6 +196,7 @@
     <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
     <script>
         M.AutoInit();
+        window.onload = redirectIfNoToken();
     </script>
 </body>
 

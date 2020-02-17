@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ressort</title>
+    <title>Gebruikers</title>
 
     <!-- Materialize CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,9 +13,6 @@
         media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
 
-    <!-- controller js -->
-    <script type="text/javascript" src="../controllers/ressortController.js"></script>
-    <script type="text/javascript" src="../controllers/main.js"></script>
 
 </head>
 
@@ -139,109 +136,183 @@
         </a>
     </div>
 
-    <!-- Ressort Table -->
+    <!-- Gebruiker Table -->
     <div class="container">
         <div class="row">
             <div class="col s12" style="height: 28em; overflow: auto;">
-                <table id="ressortTable" class="highlight">
+                <table id="gebruikerTable" class="highlight">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Ressort</th>
-                            <th>District</th>
+                            <th>Gebruikernaam</th>
+                            <th>Naam</th>
+                            <th>Voornaam</th>
+                            <th>Adres</th>
+                            <th>Telefoon</th>
+                            <th>Email</th>
+
+                            <th>Type</th>
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="rTableBody">
+                    <tbody id="gebruikerTableBody">
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- Flaoting Ressort Button -->
+    <!-- Floating Gebruiker Button -->
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large nav waves-effect waves-light btn modal-trigger" href="#modal_ressort">
+        <a class="btn-floating btn-large nav waves-effect waves-light btn modal-trigger" href="#modal_gebruiker">
             <i class="large material-icons">add</i>
         </a>
     </div>
 
-    <!-- ressort modal -->
-    <div id="modal_ressort" class="modal" style="height: 900px;">
+    <!-- Gebruiker modal -->
+    <div id="modal_gebruiker" class="modal" style="height: 900px;">
         <div class="modal-content">
-            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Nieuw ressort opslaan</h3>
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Nieuw Gebruiker Aanmaken</h3>
             <br>
             <div>
                 <div class="row">
-                    <form class="col s12" method="POST" id="ressortForm" name="ressortForm"
-                        onsubmit="return createRessort()">
+                    <form class="col s12" method="POST" id="gebruikerForm" name="gebruikerForm"
+                        onsubmit="return createGebruiker()">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input type="text" name="ressortnaam" id="ressortnaam" required>
-                                <label for="ressortnaam">Ressort</label>
+                                <input type="text" name="naam" id="naam" required>
+                                <label for="naam">Naam</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="voornaam" id="voornaam" required>
+                                <label for="voornaam">Voornaam</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s6">
-                                <select name="district">
-                                    <option value="Paramaribo">Paramaribo</option>
-                                    <option value="Commewijne">Commewijne</option>
-                                    <option value="Wanica">Wanica</option>
-                                    <option value="Saramacca">Saramacca</option>
-                                    <option value="Marowijne">Marowijne</option>
-                                    <option value="Para">Para</option>
-                                    <option value="Brokopondo">Brokopondo</option>
-                                    <option value="Coronie">Coronie</option>
+
+                            <!-- <div class="input-field col s6">
+                                <select name="type">
                                     <option value="Nickerie">Nickerie</option>
                                     <option value="Sipaliwini">Sipaliwini</option>
                                 </select>
-                                <label for="district">District</label>
+                                <label for="type">Type</label>
+                            </div> -->
+
+                            <div class="input-field col s6">
+                                <input type="text" name="type_id" id="type_id" required>
+                                <label for="type_id">Type_id</label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <input type="text" name="email" id="email" required>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="adres" id="adres" required>
+                                <label for="adres">Adres</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="telefoonnummer" id="telefoonnummer" required>
+                                <label for="telefoonnummer">Telefoon</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="gebruikernaam" id="gebruikernaam" required>
+                                <label for="gebruikernaam">Gebruikernaam</label>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="password" name="wachtwoord" id="wachtwoord" required>
+                                <label for="wachtwoord">Wachtwoord</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="password" name="wachtwoord2" id="wachtwoord2" required>
+                                <label for="wachtwoord2">Wachtwoord Opniew Invoeren</label>
                             </div>
                         </div>
                         <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
-                        <button class="btn waves-effect waves-light, nav" type="button" name="action"
-                            onclick="token()">Token</button>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- update ressort modal -->
-    <div id="modal_updateressort" class="modal" style="height: 900px;">
+    <!-- update gebruiker modal -->
+    <div id="modal_update_gebruiker" class="modal" style="height: 900px;">
         <div class="modal-content">
-            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Ressort wijzigen</h3>
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Gebruiker wijzigen</h3>
             <br>
             <div>
                 <div class="row">
-                    <form class="col s12" method="POST" id="updateRessortForm" name="updateRessortForm"
-                        onsubmit="return updateRessort()">
+                    <form class="col s12" method="POST" id="updateGebruikerForm" name="updateGebruikerForm"
+                        onsubmit="return updateGebruiker()">
                         <div class="row">
                             <div class="input-field col s6">
-                                <label for="updateRessortnaam">Ressort</label>
-                                <input type="text" name="updateRessortnaam" id="updateRessortnaam" value="" required>
+                                <input type="text" name="naam" id="naam" required>
+                                <label for="naam">Naam</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="voornaam" id="voornaam" required>
+                                <label for="voornaam">Voornaam</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s6">
-                                <select name="updateDistrict">
-                                    <option value="Paramaribo" selected="">Paramaribo</option>
-                                    <option value="Commewijne">Commewijne</option>
-                                    <option value="Wanica">Wanica</option>
-                                    <option value="Saramacca">Saramacca</option>
-                                    <option value="Marowijne">Marowijne</option>
-                                    <option value="Para">Para</option>
-                                    <option value="Brokopondo">Brokopondo</option>
-                                    <option value="Coronie">Coronie</option>
+
+                            <!-- <div class="input-field col s6">
+                                <select name="type">
                                     <option value="Nickerie">Nickerie</option>
                                     <option value="Sipaliwini">Sipaliwini</option>
                                 </select>
-                                <label for="updateDistrict">District</label>
+                                <label for="type">Type</label>
+                            </div> -->
+
+                            <div class="input-field col s6">
+                                <input type="text" name="type_id" id="type_id" required>
+                                <label for="type_id">Type_id</label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <input type="text" name="email" id="email" required>
+                                <label for="email">Email</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="adres" id="adres" required>
+                                <label for="adres">Adres</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="telefoonnummer" id="telefoonnummer" required>
+                                <label for="telefoonnummer">Telefoon</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="gebruikernaam" id="gebruikernaam" required>
+                                <label for="gebruikernaam">Gebruikernaam</label>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="password" name="wachtwoord" id="wachtwoord" required>
+                                <label for="wachtwoord">Wachtwoord</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="password" name="wachtwoord2" id="wachtwoord2" required>
+                                <label for="wachtwoord2">Wachtwoord Opniew Invoeren</label>
+                            </div>
+                        </div>
+
                         <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
-                        <button class="btn waves-effect waves-light, nav" type="button" name="action"
-                            onclick="token()">Token</button>
+
                     </form>
                 </div>
             </div>
@@ -250,8 +321,13 @@
 
     <!-- materialize js -->
     <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
+
+    <!-- controller js -->
+    <script type="text/javascript" src="../controllers/gebruikerController.js"></script>
+    <script type="text/javascript" src="../controllers/main.js"></script>
     <script>
         M.AutoInit();
+        window.onload = redirectIfNoToken();
     </script>
 </body>
 
