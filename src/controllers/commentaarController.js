@@ -61,7 +61,7 @@ fetch('http://127.0.0.1:3000/api/ressort', {
           .then(res => {
               console.log('Success', res);
               location.reload();
-  
+
           })
           .catch((err) => {
               console.error(err);
@@ -73,4 +73,4 @@ fetch('http://127.0.0.1:3000/api/ressort', {
   function token() {
       var token = localStorage.getItem('token');
       console.log(token);
-  }
+  } 
