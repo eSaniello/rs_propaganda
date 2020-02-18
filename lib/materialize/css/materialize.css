@@ -5758,7 +5758,7 @@ body.keyboard-focused .dropdown-content li:focus {
   max-height: 70%;
   width: 55%;
   margin: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
 }
@@ -5787,7 +5787,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .modal .modal-footer {
   border-radius: 0 0 2px 2px;
-  background-color: teal;
+  background-color: #fafafa;
   padding: 4px 6px;
   height: 56px;
   width: 100%;
