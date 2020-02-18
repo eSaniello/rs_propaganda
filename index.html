@@ -13,49 +13,51 @@
     <link rel="stylesheet" href="./src/style/login.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- controllers -->
-    <script type="text/javascript" src="./src/controllers/loginController.js"></script>
 </head>
 
 <body class="">
+
     <div class="container">
         <div class="row">
+            <h1 class="center-align white-text" style="padding-top: 4%;">RS-Propoganda</h1>
             <!-- Image Logo -->
-            <div class="col s6 center-align" style="padding-top: 200px;">
+            <div class="col s4 center-align" style="padding-top: 5%;">
                 <img src="./media/logo.png" alt="RS_propoganda Logo">
             </div>
 
             <!-- Login Form -->
-            <div class="col s6" style="padding-top: 200px;">
+            <div class="col s6 offset-s2" style="padding-top: 5%">
                 <form id="loginForm" name="loginForm" method="post" onsubmit="return inloggen()">
                     <div class="row">
-                        <div class="field col s6">
-                            <input type="text" name="gebruikernaam" id="gebruikernaam" placeholder="Gebruikersnaam"
-                                class="validate" required>
+                        <div class="input-field col s9">
+                            <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate" required>
+                            <label for="gebruikersnaam">Gebruikersnaam</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="field col s6">
-                            <input type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord"
-                                class="validate" required>
+                        <div class="input-field col s9">
+                            <input id="wachtwoord" name="wachtwoord" type="password" class="validate" required>
+                            <label for="wachtwoord">Wachtwoord</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="field col s6">
-                            <button class="btn waves-effect waves-light" type="submit">Inloggen</button>
-                        </div>
+                    <div class="row col s6">
+                        <button class="btn waves-effect waves-light" type="submit">Inloggen</button>
                     </div>
+
                 </form>
             </div>
+
         </div>
     </div>
 
-    <!-- Materialize JS -->
+
+
+
     <script type="text/javascript" src="./lib/materialize/js/materialize.min.js"></script>
     <script>
         M.AutoInit();
     </script>
+    <script type="text/javascript" src="./src/controllers/loginController.js"></script>
 
 </body>
 
