@@ -13,9 +13,7 @@
         media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
 
-    <!-- controller js -->
-    <script type="text/javascript" src="../controllers/ressortController.js"></script>
-    <script type="text/javascript" src="../controllers/main.js"></script>
+ 
 
 </head>
 
@@ -73,15 +71,17 @@
                 <div class="divider"></div>
             </li>
             <li>
+                <form autocomplete="off" onsubmit="return verstuurBericht()" id="berichtForm" name="berichtForm">
                 <div class="row">
                     <div class="input-field col s11">
-                        <input placeholder="Bericht..." id="enter_message" type="text" class="validate">
+                        <input placeholder="Bericht..." id="enter_message" type="text" class="validate" required>
                         <label for="enter_message">Nieuw bericht</label>
-                        <button class="btn-small waves-effect waves-light red" type="button" name="action">versturen
+                        <button class="btn-small waves-effect waves-light red" type="submit" name="action">versturen
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
                 </div>
+            </form>
             </li>
             <li>
                 <!-- Bericht 1 -->
@@ -198,6 +198,11 @@
         M.AutoInit();
         window.onload = redirectIfNoToken();
     </script>
+
+       <!-- controller js -->
+       <script type="text/javascript" src="../controllers/ressortController.js"></script>
+       <script type="text/javascript" src="../controllers/main.js"></script>
+       <script type="text/javascript" src="../controllers/berichtController.js"></script>
 </body>
 
 </html>
