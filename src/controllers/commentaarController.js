@@ -1,76 +1,52 @@
-const token2 = localStorage.getItem("token");
+const tokencm = localStorage.getItem("token");
 
 const myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer " + token2);
+myHeaders.append("Authorization", "Bearer " + tokencm);
 
-fetch('http://127.0.0.1:3000/api/ressort', {
+fetch('http://127.0.0.1:3000/api/commentaar', {
     method: 'GET',
     headers: myHeaders,
     mode: 'cors',
     cache: 'default'
 })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        console.log(data.data.length);
 
-        if (data.data.length > 0) {
-            var body = "";
+function createComment() {
+    let form = document.forms["commentaarForm"];
+    let fd = new FormData(form);
+    let data = {};
+    for (let [key, prop] of fd) {
+        data[key] = prop;
+    }
+    VALUE = JSON.stringify(data, null, 2);
 
-            data.data.forEach(i => {
-                body += "<tr>";
-                body += "<td>" + i.ressort_id + "</td>";
-                body += "<td>" + i.ressortnaam + "</td>";
-                body += "<td>" + i.district + "</td>";
-                body += `<td>
-                    <a class='modal-trigger' href='#modal_updateressort' title='Wijzigen' data-toggle='tooltip' style='cursor: pointer;' onclick='return getData(this)'><i class='small material-icons' style='color: #ffd600;'>edit</i></a>
-                    <a title='Verwijderen' data-toggle='tooltip' style='cursor: pointer;' onclick='return deleteCheck(this)'><i class='small material-icons' style='color: #c62828;'>delete</i></a>
-                </td>`;
-                body += "</tr>";
-            })
+    console.log(VALUE);
 
-            document.getElementById('rTableBody').innerHTML = body;
-        }
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + tokencm);
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Accept', 'application/json');
+
+    fetch("http://127.0.0.1:3000/api/commentaar", {
+        method: "POST",
+        headers: myHeaders,
+        mode: "cors",
+        cache: "default",
+        body: VALUE
     })
-    .catch((err) => console.log(err))
-    
-    function createRessort() {
-      let form = document.forms["ressortForm"];
-      let fd = new FormData(form);
-      let data = {};
-      for (let [key, prop] of fd) {
-          data[key] = prop;
-      }
-      VALUE = JSON.stringify(data, null, 2);
-  
-      console.log(VALUE);
-  
-      const myHeaders = new Headers();
-      myHeaders.append("Authorization", "Bearer " + token2);
-      myHeaders.append('Content-Type', 'application/json');
-      myHeaders.append('Accept', 'application/json');
-  
-      fetch("http://127.0.0.1:3000/api/ressort", {
-          method: "POST",
-          headers: myHeaders,
-          mode: "cors",
-          cache: "default",
-          body: VALUE
-      })
-          .then(res => res.json())
-          .then(res => {
-              console.log('Success', res);
-              location.reload();
+        .then(res => res.json())
+        .then(res => {
+            console.log('Success', res);
+            location.reload();
 
-          })
-          .catch((err) => {
-              console.error(err);
-          })
-  
-      return false;
-  }
-  
-  function token() {
-      var token = localStorage.getItem('token');
-      console.log(token);
-  } 
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+
+    return false;
+}
+
+function token() {
+    var token = localStorage.getItem('token');
+    console.log(token);
+}
