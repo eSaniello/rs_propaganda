@@ -7,115 +7,59 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RS Propaganda</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="lib/materialize//css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="src/style/main.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="./lib/materialize//css/materialize.min.css"
+        media="screen,projection" />
+
+    <link rel="stylesheet" href="./src/style/login.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body class="blue lighten-4">
-    <div class="row">
-        <nav class="nav_height">
-            <div class="nav-wrapper nav">
-                <img id="logo" class="brand-logo" src="./media/logo.png" alt="">
-                <ul id="nav-mobile" class="right hide-on-med-and-down menu_ul">
-                    <li><a href="index.html">Start Pagina</a></li>
-                    <li><a href="#">Meow</a></li>
-                </ul>
-            </div>
-        </nav>
-
-
-        <ul id="slide-out" class="sidenav col s4" style="overflow: scroll;">
-            <li>
-                <blockquote>
-                    <p class="flow-text">Belangrijke Mededelingen</p>
-                </blockquote>
-            </li>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li>
-                <div class="row">
-                    <div class="input-field col s11">
-                        <input placeholder="Bericht..." id="enter_message" type="text" class="validate">
-                        <label for="enter_message">Nieuw bericht</label>
-                        <button class="btn-small waves-effect waves-light red" type="button" name="action">versturen
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <!-- Bericht 1 -->
-                <div class="row">
-                    <div class="card_width">
-                        <div class="card teal darken-1 card_edge">
-                            <div class="card-content white-text">
-                                <span class="card-title">Shaniel Samadhan</span>
-                                <p>Waddup all mi badmans and badgyals, all good wit ya'll bomboclaats?</p>
-                            </div>
-                            <div class="card-action">
-                                <p class="white-text">29-06-2020 01:30 AM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <!-- Bericht 2 -->
-                <div class="row">
-                    <div class="card_width">
-                        <div class="card teal darken-1 card_edge">
-                            <div class="card-content white-text">
-                                <span class="card-title">Andojo Mack</span>
-                                <p>It's ya boi McDoodle in the building!</p>
-                            </div>
-                            <div class="card-action">
-                                <p class="white-text">23-06-2020 11:00 AM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <!-- Bericht 3 -->
-                <div class="row">
-                    <div class="card_width">
-                        <div class="card teal darken-1 card_edge">
-                            <div class="card-content white-text">
-                                <span class="card-title">Kenson Latchmansing</span>
-                                <p>Gangaaa mie baka e hatie wooo. EJE! </p>
-                            </div>
-                            <div class="card-action">
-                                <p class="white-text">29-06-2020 12:30 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger ">
-            <i class="material-icons message_btn ">message</i>
-        </a>
-
-
-
-    </div>
+<body class="">
 
     <div class="container">
-
         <div class="row">
-            HOOMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+            <h1 class="center-align white-text" style="padding-top: 4%;">RS-Propoganda</h1>
+            <!-- Image Logo -->
+            <div class="col s4 center-align" style="padding-top: 5%;">
+                <img src="./media/logo.png" alt="RS_propoganda Logo">
+            </div>
+
+            <!-- Login Form -->
+            <div class="col s6 offset-s2" style="padding-top: 5%">
+                <form id="loginForm" name="loginForm" method="post" onsubmit="return inloggen()">
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <input id="gebruikernaam" name="gebruikernaam" type="text" class="validate" required>
+                            <label for="gebruikersnaam">Gebruikersnaam</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <input id="wachtwoord" name="wachtwoord" type="password" class="validate" required>
+                            <label for="wachtwoord">Wachtwoord</label>
+                        </div>
+                    </div>
+                    <div class="row col s6">
+                        <button class="btn waves-effect waves-light" type="submit">Inloggen</button>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
-
-
     </div>
 
-    <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
+
+
+
+    <script type="text/javascript" src="./lib/materialize/js/materialize.min.js"></script>
     <script>
         M.AutoInit();
+      
     </script>
+    <script type="text/javascript" src="./src/controllers/loginController.js"></script>
+
 </body>
 
 </html>

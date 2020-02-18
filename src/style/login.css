@@ -1,0 +1,22 @@
+body {
+    background-color: #4c81f4;
+}
+
+/* label color */
+.input-field label {
+    color: #ffffff;
+
+}
+
+/* label focus color */
+.input-field input[type=text]:focus+label {
+    color: #ffffff;
+}
+
+input#gebruikernaam {
+    color: white;
+}
+
+input#wachtwoord {
+    color: white;
+}
