@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ressort</title>
+
+    <!-- Materialize CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../../lib/materialize//css/materialize.min.css"
+        media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
+
+</head>
+
+<body class="blue lighten-4">
+    <!-- Nav Bar -->
+    <div class="row">
+        <nav class="nav_height">
+            <div class="nav-wrapper nav" style="padding-left: 10px;">
+                <!-- Image Logo -->
+                <div class="image-link">
+                    <a href="./dashboard.html">
+                        <img id="logo" class="brand-logo" src="../../media/logo.png" style="height: auto; width: 50px;">
+                    </a>
+                </div>
+                <!-- Navigation  -->
+                <div class="nav-wrapper">
+                    <!-- Menu Dropdown Structure -->
+                    <div>
+                        <ul id="menu" class="dropdown-content">
+                            <li><a href="#!">Commentaar</a></li>
+                            <li><a href="./presentie.html">Presentie</a></li>
+                            <li><a href="./ressort.html">Ressort</a></li>
+                            <li><a href="#!">Vergadering</a></li>
+                        </ul>
+                        <ul id="instellingen" class="dropdown-content">
+                            <li><a href="./gebruikers.html">Accounts</a></li>
+                            <li class="divider"></li>
+                            <li><a onclick="logout()">Uitloggen</a></li>
+                        </ul>
+                    </div>
+                    <!-- Dropdowns Button -->
+                    <ul class="hide-on-med-and-down right">
+                        <li><a class="dropdown-trigger" data-target="menu">Menu<i
+                                    class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+                        <li><a class="dropdown-trigger" data-target="instellingen">Instellingen<i
+                                    class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Ressort Table -->
+    <div class="container">
+        <div class="row">
+            <blockquote>
+                <p class="flow-text">Ressorten</p>
+            </blockquote>
+            <div class="col s12" style="height: 28em; overflow: auto; width: auto;">
+                <table id="ressortTable" class="highlight" style="width: 1000px;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ressort</th>
+                            <th>District</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="rTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flaoting Ressort Button -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large nav waves-effect waves-light btn modal-trigger" href="#modal_ressort">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+    <!-- ressort modal -->
+    <div id="modal_ressort" class="modal" style="height: 900px;">
+        <div class="modal-content">
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Nieuw ressort opslaan</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" method="POST" id="ressortForm" name="ressortForm"
+                        onsubmit="return createRessort()">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="ressortnaam" id="ressortnaam" required>
+                                <label for="ressortnaam">Ressort</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="district">
+                                    <option value="Paramaribo">Paramaribo</option>
+                                    <option value="Commewijne">Commewijne</option>
+                                    <option value="Wanica">Wanica</option>
+                                    <option value="Saramacca">Saramacca</option>
+                                    <option value="Marowijne">Marowijne</option>
+                                    <option value="Para">Para</option>
+                                    <option value="Brokopondo">Brokopondo</option>
+                                    <option value="Coronie">Coronie</option>
+                                    <option value="Nickerie">Nickerie</option>
+                                    <option value="Sipaliwini">Sipaliwini</option>
+                                </select>
+                                <label for="district">District</label>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                        <button class="btn waves-effect waves-light, nav" type="button" name="action"
+                            onclick="return getToken()">Token</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- update ressort modal -->
+    <div id="modal_updateressort" class="modal" style="height: 900px;">
+        <div class="modal-content">
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Ressort wijzigen</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" method="POST" id="updateRessortForm" name="updateRessortForm"
+                        onsubmit="return updateRessort()">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label for="updateRessortnaam">Ressort</label>
+                                <input type="text" name="ressortnaam" id="updateRessortnaam" value="" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="district" id="updateDistrict">
+                                    <option value="Paramaribo" selected="">Paramaribo</option>
+                                    <option value="Commewijne">Commewijne</option>
+                                    <option value="Wanica">Wanica</option>
+                                    <option value="Saramacca">Saramacca</option>
+                                    <option value="Marowijne">Marowijne</option>
+                                    <option value="Para">Para</option>
+                                    <option value="Brokopondo">Brokopondo</option>
+                                    <option value="Coronie">Coronie</option>
+                                    <option value="Nickerie">Nickerie</option>
+                                    <option value="Sipaliwini">Sipaliwini</option>
+                                </select>
+                                <label for="updateDistrict">District</label>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- materialize js -->
+    <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- controller js -->
+    <script type="text/javascript" src="../controllers/ressortController.js"></script>
+    <script type="text/javascript" src="../controllers/main.js"></script>
+
+    <script>
+        M.AutoInit();
+        $(document).ready(function () {
+            M.updateTextFields();
+        });
+        window.onload = redirectIfNoToken();
+        window.onload = getRessort();
+    </script>
+</body>
+
+</html>

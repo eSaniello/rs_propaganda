@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+
+    <!-- Materialize CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../../lib/materialize//css/materialize.min.css"
+        media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
+
+</head>
+
+<body class="blue lighten-4">
+    <div class="row">
+        <!-- Nav Bar -->
+        <nav class="nav_height">
+            <div class="nav-wrapper nav" style="padding-left: 10px;">
+                <!-- Image Logo -->
+                <div class="image-link">
+                    <a href="./dashboard.html">
+                        <img id="logo" class="brand-logo" src="../../media/logo.png" style="height: auto; width: 50px;">
+                    </a>
+                </div>
+                <!-- Navigation  -->
+                <div class="nav-wrapper">
+                    <!-- Menu Dropdown Structure -->
+                    <div>
+                        <ul id="menu" class="dropdown-content">
+                            <li><a href="#!">Commentaar</a></li>
+                            <li><a href="./presentie.html">Presentie</a></li>
+                            <li><a href="./ressort.html">Ressort</a></li>
+                            <li><a href="#!">Vergadering</a></li>
+                        </ul>
+                        <ul id="instellingen" class="dropdown-content">
+                            <li><a href="./gebruikers.html">Accounts</a></li>
+                            <li class="divider"></li>
+                            <li><a onclick="logout()">Uitloggen</a></li>
+                        </ul>
+                    </div>
+                    <!-- Dropdowns Button -->
+                    <ul class="hide-on-med-and-down right">
+                        <li><a class="dropdown-trigger" data-target="menu">Menu<i
+                                    class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+                        <li><a class="dropdown-trigger" data-target="instellingen">Instellingen<i
+                                    class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Presentie Table -->
+        <div class="container">
+            <div class="row">
+                <blockquote>
+                    <p class="flow-text">Presenties</p>
+                </blockquote>
+                <div class="col s12" style="height: 28em; overflow: auto; width: auto;">
+                    <table id="presentieTable" class="highlight" style="width: 1000px;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Naam</th>
+                                <th>Voornaam</th>
+                                <th>Vergadering</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="pTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Floating action button presentie -->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large btn modal-trigger nav" href="#modal_presentie"
+                onclick="return getVergadering()">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+
+        <!-- presentie modal -->
+        <div id="modal_presentie" class="modal" style="height: 900px;">
+            <div class="modal-content">
+                <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Presentie</h3>
+                <br>
+                <div>
+                    <div class="row">
+                        <form class="col s12" method="POST" id="presentieForm" name="presentieForm"
+                            onsubmit="return createPresentie()">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <select name="vergader_id" id="vergadering">
+                                    </select>
+                                    <label for="vergadering">Vergadering</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s3">
+                                    <input type="text" name="naam" id="naam" required>
+                                    <label for="naam">Naam</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <input type="text" name="voornaam" id="voornaam" required>
+                                    <label for="voornaam">Voornaam</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="email" name="email" id="email" required>
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light, nav" type="submit"
+                                name="action">Opslaan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- update presentie modal -->
+        <div id="modal_updatepresentie" class="modal" style="height: 900px;">
+            <div class="modal-content">
+                <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Presentie</h3>
+                <br>
+                <div>
+                    <div class="row">
+                        <form class="col s12" method="POST" id="updatePresentieForm" name="updatePresentieForm"
+                            onsubmit="return updatePresentie()">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <select name="vergader_id" id="updateVergadering">
+                                    </select>
+                                    <label for="vergadering">Vergadering</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s3">
+                                    <input type="text" name="naam" id="updateNaam" required>
+                                    <label for="naam">Naam</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <input type="text" name="voornaam" id="updateVoornaam" required>
+                                    <label for="voornaam">Voornaam</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="email" name="email" id="updateEmail" required>
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light, nav" type="submit"
+                                name="action">Opslaan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- controller js -->
+        <script type="text/javascript" src="../controllers/presentieController.js"></script>
+        <script type="text/javascript" src="../controllers/main.js"></script>
+
+        <!-- materialize js -->
+        <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            M.AutoInit();
+            $(document).ready(function () {
+                M.updateTextFields();
+            });
+            window.onload = redirectIfNoToken();
+            window.onload = getPresentie();
+        </script>
+</body>
+
+</html>

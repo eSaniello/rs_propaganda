@@ -1,22 +1,22 @@
-.logo{
-    /* margin-top: 15% !important; */
-}
-
-.loginForm{
-    /* margin-left: 10% !important; */
-    /* margin-top: 15% !important; */
-}
-
-.btn_login{
-    margin-left: 1% !important;
-    -webkit-text-fill-color: #2196F3;
-}
-
-.btn_login:hover{
-    margin-left: 1% !important;
-    -webkit-text-fill-color: rgb(0, 0, 0); 
-}
-
-body{
+body {
     background-color: #4c81f4;
+}
+
+/* label color */
+.input-field label {
+    color: #ffffff;
+
+}
+
+/* label focus color */
+.input-field input[type=text]:focus+label {
+    color: #ffffff;
+}
+
+input#gebruikernaam {
+    color: white;
+}
+
+input#wachtwoord {
+    color: white;
 }
