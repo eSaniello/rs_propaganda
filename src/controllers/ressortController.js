@@ -1,4 +1,5 @@
 var globalId;
+var ressortID;
 const tokenRessort = localStorage.getItem("token");
 
 function getRowId(td) {
@@ -34,7 +35,7 @@ function getRessort() {
                     body += "<td>" + i.ressortnaam + "</td>";
                     body += "<td>" + i.district + "</td>";
                     body += `<td>
-                    <a class='modal-trigger' href='#modal_updateressort' title='Wijzigen' data-toggle='tooltip' style='cursor: pointer;' onclick='return getData(this)'><i class='small material-icons' style='color: #ffd600;'>edit</i></a>
+                    <a class='modal-trigger' href='#modal_updateressort' title='Wijzigen' data-toggle='tooltip' style='cursor: pointer;' onclick='return getRessortByID(this)'><i class='small material-icons' style='color: #ffd600;'>edit</i></a>
                     <a title='Verwijderen' data-toggle='tooltip' style='cursor: pointer;' onclick='return deleteRessort(this)'><i class='small material-icons' style='color: #c62828;'>delete</i></a>
                 </td>`;
                     body += "</tr>";
@@ -107,16 +108,66 @@ function deleteRessort(td) {
 }
 
 function getRessortByID(td) {
-    selectedRow = td.parentElement.parentElement;
-    document.getElementById('updateRessortnaam').value = selectedRow.cells[1].innerHTML;
-    document.getElementById('updateDistrict').selected = selectedRow.cells[2].innerHTML;
-
     id = getRowId(td);
-    alert(id);
-    return id;
+    ressortID = id;
+
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + tokenRessort);
+
+    fetch('http://127.0.0.1:3000/api/ressort/' + id, {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            console.log(data.success);
+            if (data.success == 1) {
+                ressortnaam = data.data.ressortnaam;
+                district = data.data.district;
+
+                document.getElementById('updateRessortnaam').value = ressortnaam;
+                document.getElementById('updateDistrict').value = district;
+            }
+        })
+        .catch((err) => console.log(err))
+    return ressortID;
 }
 
-function updateRessort(td) {
-    id = getRowId(td);
-    alert(id);
+function updateRessort() {
+    let form = document.forms["updateRessortForm"];
+    let fd = new FormData(form);
+    let data = {};
+    for (let [key, prop] of fd) {
+        data[key] = prop;
+    }
+    VALUE = JSON.stringify(data, null, 2);
+
+    console.log(VALUE);
+
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + tokenRessort);
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Accept', 'application/json');
+
+    fetch("http://127.0.0.1:3000/api/ressort/" + ressortID, {
+        method: "PUT",
+        headers: myHeaders,
+        mode: "cors",
+        cache: "default",
+        body: VALUE
+    })
+        .then(res => res.json())
+        .then(res => {
+            console.log('Success', res);
+            alert('Ressort succesvol gewijzigd!');
+            location.reload();
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+
+    return false;
 }

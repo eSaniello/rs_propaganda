@@ -138,8 +138,8 @@
     <!-- Ressort Table -->
     <div class="container">
         <div class="row">
-            <div class="col s12" style="height: 28em; overflow: auto;">
-                <table id="ressortTable" class="highlight">
+            <div class="col s12" style="height: 28em; overflow: auto; width: auto;">
+                <table id="ressortTable" class="highlight" style="width: 1000px;">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -215,12 +215,12 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <label for="updateRessortnaam">Ressort</label>
-                                <input type="text" name="updateRessortnaam" id="updateRessortnaam" value="" required>
+                                <input type="text" name="ressortnaam" id="updateRessortnaam" value="" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <select name="updateDistrict">
+                                <select name="district" id="updateDistrict">
                                     <option value="Paramaribo" selected="">Paramaribo</option>
                                     <option value="Commewijne">Commewijne</option>
                                     <option value="Wanica">Wanica</option>
@@ -236,8 +236,6 @@
                             </div>
                         </div>
                         <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
-                        <button class="btn waves-effect waves-light, nav" type="button" name="action"
-                            onclick="token()">Token</button>
                     </form>
                 </div>
             </div>
