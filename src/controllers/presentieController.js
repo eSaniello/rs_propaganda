@@ -17,7 +17,7 @@ function getVergadering() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + tokenPresentie);
 
-    fetch('http://127.0.0.1:3000/api/presentie', {
+    fetch('http://127.0.0.1:3000/api/vergadering', {
         method: 'GET',
         headers: myHeaders,
         mode: 'cors',

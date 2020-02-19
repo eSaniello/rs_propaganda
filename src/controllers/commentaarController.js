@@ -17,7 +17,7 @@ function getPresentie() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + tokenCommentaar);
 
-    fetch('http://127.0.0.1:3000/api/commentaar', {
+    fetch('http://127.0.0.1:3000/api/presentie', {
         method: 'GET',
         headers: myHeaders,
         mode: 'cors',
