@@ -13,10 +13,6 @@
         media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
 
-    <!-- controller js -->
-    <script type="text/javascript" src="../controllers/ressortController.js"></script>
-    <script type="text/javascript" src="../controllers/main.js"></script>
-
 </head>
 
 <body class="blue lighten-4">
@@ -35,10 +31,10 @@
                     <!-- Menu Dropdown Structure -->
                     <div>
                         <ul id="menu" class="dropdown-content">
-                            <li><a href="#!">Commentaar</a></li>
+                            <li><a href="./commentaar.html">Commentaar</a></li>
                             <li><a href="#!">Presentie</a></li>
                             <li><a href="./ressort.html">Ressort</a></li>
-                            <li><a href="./ressort.html">Ressort</a></li>
+                            <li><a href="#!">Vergadering</a></li>
                             <li><a href="./gebruikers.html">Gebruikers</a></li>
                         </ul>
                         <ul id="instellingen" class="dropdown-content">
@@ -197,49 +193,41 @@
     <!--commentaar modal-->
     <div id="modal_commentaar" class="modal">
         <div class="modal-content">
-            <div class="row style2">
-                <form class="col s12" method="POST" id="commentaarForm" name="commentaarForm"
-                onsubmit="return createComment()">
-                    <div class="row">
-                        <div class="input-field col s8">
-                            <i class="material-icons prefix" name="presentieid" id="presentie_id" required>person</i> 
-                            <label for="presentieid">Presentie</label>
-                            <br>
-                            <select>
-                                <option value="" disabled selected></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Commentaar</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" method="POST" id="commentaarForm" name="commentaarForm"
+                        onsubmit="return createCommentaar()">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="presentie_id" id="presentie" required>
+                                    <option value="1">1</option>
+                                </select>
+                                <label for="presentie">Presentie</label>
+                            </div>
                         </div>
-                        <div class="input-field col s8">
-                            <i class="material-icons prefix">comment</i>
-                            <textarea id="icon_prefix2" class="materialize-textarea" name="comment" id="commentaar"></textarea>
-                            <label for="icon_prefix2">Commentaar</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <textarea id="commentaar" name="commentaar" class="materialize-textarea"></textarea>
+                                <label for="commentaar">Commentaar</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <select name="type" id="type" required>
+                                    <option value="1">Positief</option>
+                                    <option value="0">Negatief</option>
+                                </select>
+                            </div>
                         </div>
-                            <br>
-                            <p>
-                            <label>
-                            <input class="with-gap" name="group3" type="radio" id="type" checked />
-                            <span>Positief</span>
-                            </label>
-                            <br>
-                            <label>
-                            <input class="with-gap" name="group3" type="radio" id="type" />
-                            <span>Negatief</span>
-                            </label>
-                            </p>
-                    </div>
-                    <button class="btn waves-effect waves-light footertext, nav" type="submit" name="action">Opslaan</button> 
-                </form>              
- 
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="modal-footer">
-           
         </div>
     </div>
 
+    <!-- controller js -->
+    <script type="text/javascript" src="../controllers/main.js"></script>
 
     <!-- materialize js -->
     <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>

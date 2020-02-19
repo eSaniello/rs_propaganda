@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ressort</title>
+    <title>Dashboard</title>
 
     <!-- Materialize CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,12 +16,12 @@
 </head>
 
 <body class="blue lighten-4">
-    <!-- Nav Bar -->
     <div class="row">
+        <!-- Nav Bar -->
         <nav class="nav_height">
             <div class="nav-wrapper nav" style="padding-left: 10px;">
                 <!-- Image Logo -->
-                <div class="image-link">
+                <div>
                     <a href="./dashboard.html">
                         <img id="logo" class="brand-logo" src="../../media/logo.png" style="height: auto; width: 50px;">
                     </a>
@@ -57,10 +57,8 @@
                 </div>
             </div>
         </nav>
-    </div>
 
-    <!-- Berichten -->
-    <div class="row">
+
         <ul id="slide-out" class="sidenav col s4" style="overflow: scroll;">
             <li>
                 <blockquote>
@@ -135,125 +133,57 @@
         </a>
     </div>
 
-    <!-- Ressort Table -->
-    <div class="container">
-        <div class="row">
-            <div class="col s12" style="height: 28em; overflow: auto;">
-                <table id="ressortTable" class="highlight">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ressort</th>
-                            <th>District</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="rTableBody">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Flaoting Ressort Button -->
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large nav waves-effect waves-light btn modal-trigger" href="#modal_ressort">
+        <a class="btn-floating btn-large btn modal-trigger nav" href="#modal_commentaar">
             <i class="large material-icons">add</i>
         </a>
     </div>
 
-    <!-- ressort modal -->
-    <div id="modal_ressort" class="modal" style="height: 900px;">
+    <!--commentaar modal-->
+    <div id="modal_commentaar" class="modal">
         <div class="modal-content">
-            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Nieuw ressort opslaan</h3>
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Commentaar</h3>
             <br>
             <div>
                 <div class="row">
-                    <form class="col s12" method="POST" id="ressortForm" name="ressortForm" onsubmit="createRessort()">
+                    <form class="col s12" method="POST" id="commentaarForm" name="commentaarForm"
+                        onsubmit="return createCommentaar()">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input type="text" name="ressortnaam" id="ressortnaam" required>
-                                <label for="ressortnaam">Ressort</label>
+                                <select name="presentie_id" id="presentie" required>
+                                    <option value="1">1</option>
+                                </select>
+                                <label for="presentie">Presentie</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <select name="district">
-                                    <option value="Paramaribo">Paramaribo</option>
-                                    <option value="Commewijne">Commewijne</option>
-                                    <option value="Wanica">Wanica</option>
-                                    <option value="Saramacca">Saramacca</option>
-                                    <option value="Marowijne">Marowijne</option>
-                                    <option value="Para">Para</option>
-                                    <option value="Brokopondo">Brokopondo</option>
-                                    <option value="Coronie">Coronie</option>
-                                    <option value="Nickerie">Nickerie</option>
-                                    <option value="Sipaliwini">Sipaliwini</option>
+                                <textarea id="commentaar" name="commentaar" class="materialize-textarea"></textarea>
+                                <label for="commentaar">Commentaar</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <select name="type" id="type" required>
+                                    <option value="1">Positief</option>
+                                    <option value="0">Negatief</option>
                                 </select>
-                                <label for="district">District</label>
                             </div>
                         </div>
                         <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
-                        <button class="btn waves-effect waves-light, nav" type="button" name="action"
-                            onclick="token()">Token</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- update ressort modal -->
-    <div id="modal_updateressort" class="modal" style="height: 900px;">
-        <div class="modal-content">
-            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Ressort wijzigen</h3>
-            <br>
-            <div>
-                <div class="row">
-                    <form class="col s12" method="POST" id="updateRessortForm" name="updateRessortForm"
-                        onsubmit="return updateRessort()">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <label for="updateRessortnaam">Ressort</label>
-                                <input type="text" name="updateRessortnaam" id="updateRessortnaam" value="" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <select name="updateDistrict">
-                                    <option value="Paramaribo" selected="">Paramaribo</option>
-                                    <option value="Commewijne">Commewijne</option>
-                                    <option value="Wanica">Wanica</option>
-                                    <option value="Saramacca">Saramacca</option>
-                                    <option value="Marowijne">Marowijne</option>
-                                    <option value="Para">Para</option>
-                                    <option value="Brokopondo">Brokopondo</option>
-                                    <option value="Coronie">Coronie</option>
-                                    <option value="Nickerie">Nickerie</option>
-                                    <option value="Sipaliwini">Sipaliwini</option>
-                                </select>
-                                <label for="updateDistrict">District</label>
-                            </div>
-                        </div>
-                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
-                        <button class="btn waves-effect waves-light, nav" type="button" name="action"
-                            onclick="token()">Token</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- controller js -->
+    <script type="text/javascript" src="../controllers/commentaarController.js"></script>
+    <script type="text/javascript" src="../controllers/main.js"></script>
 
     <!-- materialize js -->
     <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
-
-    <!-- controller js -->
-    <script type="text/javascript" src="../controllers/ressortController.js"></script>
-    <script type="text/javascript" src="../controllers/main.js"></script>
-
     <script>
         M.AutoInit();
         window.onload = redirectIfNoToken();
-        window.onload = getRessort();
     </script>
 </body>
 
