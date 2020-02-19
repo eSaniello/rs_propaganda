@@ -13,6 +13,69 @@ function token() {
     console.log(token);
 }
 
+function getVergadering() {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + tokenPresentie);
+
+    fetch('http://127.0.0.1:3000/api/presentie', {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            console.log(data.data.length);
+            if (data.data.length > 0) {
+                data.data.forEach(i => {
+                    let dropdown = document.getElementById('vergadering');
+
+                    let option = document.createElement('option');
+                    option.setAttribute('value', `${i.vergader_id}`);
+                    option.textContent = i.ressortnaam + ' / ' + i.datum;
+
+                    dropdown.appendChild(option);
+                })
+            }
+        })
+        .catch((err) => console.log(err))
+
+    // return false;
+}
+
+function getUpdateVergadering() {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + tokenPresentie);
+
+    fetch('http://127.0.0.1:3000/api/presentie', {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            console.log(data.data.length);
+            if (data.data.length > 0) {
+                data.data.forEach(i => {
+                    let updateDropdown = document.getElementById('updateVergadering');
+
+                    let option = document.createElement('option');
+                    option.setAttribute('value', `${i.vergader_id}`);
+                    option.textContent = i.ressortnaam + ' / ' + i.datum;
+
+                    updateDropdown.appendChild(option);
+                })
+            }
+        })
+        .catch((err) => console.log(err))
+
+    // return false;
+}
+
+
 function getPresentie() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + tokenPresentie);
@@ -34,7 +97,7 @@ function getPresentie() {
                     body += "<td>" + i.presentie_id + "</td>";
                     body += "<td>" + i.naam + "</td>";
                     body += "<td>" + i.voornaam + "</td>";
-                    body += `<td> ${i.ressortnaam} / ${i.datum} </td>`;
+                    body += "<td>" + i.ressortnaam + " / " + Date(i.datum) + "</td>";
                     body += `<td>
                     <a class='modal-trigger' href='#modal_updatepresentie' title='Wijzigen' data-toggle='tooltip' style='cursor: pointer;' onclick='return getPresentieByID(this)'><i class='small material-icons' style='color: #ffd600;'>edit</i></a>
                     <a title='Verwijderen' data-toggle='tooltip' style='cursor: pointer;' onclick='return deletePresentie(this)'><i class='small material-icons' style='color: #c62828;'>delete</i></a>
@@ -111,6 +174,8 @@ function deletePresentie(td) {
 function getPresentieByID(td) {
     id = getRowId(td);
     presentieID = id;
+
+    getUpdateVergadering();
 
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + tokenPresentie);

@@ -21,7 +21,7 @@
         <nav class="nav_height">
             <div class="nav-wrapper nav" style="padding-left: 10px;">
                 <!-- Image Logo -->
-                <div>
+                <div class="image-link">
                     <a href="./dashboard.html">
                         <img id="logo" class="brand-logo" src="../../media/logo.png" style="height: auto; width: 50px;">
                     </a>
@@ -35,10 +35,9 @@
                             <li><a href="./presentie.html">Presentie</a></li>
                             <li><a href="./ressort.html">Ressort</a></li>
                             <li><a href="#!">Vergadering</a></li>
-                            <li><a href="./gebruikers.html">Gebruikers</a></li>
                         </ul>
                         <ul id="instellingen" class="dropdown-content">
-                            <li><a href="#!">Accounts</a></li>
+                            <li><a href="./gebruikers.html">Accounts</a></li>
                             <li><a href="#!">Profiel</a></li>
                             <li><a href="#!">Nieuw Account</a></li>
                             <li class="divider"></li>
@@ -82,7 +81,8 @@
 
         <!-- Floating action button presentie -->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large btn modal-trigger nav" href="#modal_presentie">
+            <a class="btn-floating btn-large btn modal-trigger nav" href="#modal_presentie"
+                onclick="return getVergadering()">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -98,8 +98,7 @@
                             onsubmit="return createPresentie()">
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <select name="vergadering_id" id="vergadering">
-                                        <option></option>
+                                    <select name="vergader_id" id="vergadering">
                                     </select>
                                     <label for="vergadering">Vergadering</label>
                                 </div>
@@ -137,8 +136,7 @@
                             onsubmit="return updatePresentie()">
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <select name="vergadering_id" id="updateVergadering">
-                                        <option></option>
+                                    <select name="vergader_id" id="updateVergadering">
                                     </select>
                                     <label for="vergadering">Vergadering</label>
                                 </div>

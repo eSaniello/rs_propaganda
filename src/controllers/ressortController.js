@@ -8,7 +8,7 @@ function getRowId(td) {
     return globalId;
 }
 
-function token() {
+function getToken() {
     var token = localStorage.getItem('token');
     console.log(token);
 }
