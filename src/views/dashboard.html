@@ -146,6 +146,8 @@
             </li>
             <li><a class="btn-floating waves-effect waves-light btn modal-trigger yellow darken-1"
                     href="#modal_presentie">presentie</a></li>
+            <li><a class="btn-floating waves-effect waves-light btn modal-trigger green darken-1"
+                    href="#modal_commentaar">commentaar</a></li>
         </ul>
     </div>
 
@@ -191,6 +193,53 @@
             </div>
         </div>
     </div>
+
+    <!--commentaar modal-->
+    <div id="modal_commentaar" class="modal">
+        <div class="modal-content">
+            <div class="row style2">
+                <form class="col s12" method="POST" id="commentaarForm" name="commentaarForm"
+                onsubmit="return createComment()">
+                    <div class="row">
+                        <div class="input-field col s8">
+                            <i class="material-icons prefix" name="presentieid" id="presentie_id" required>person</i> 
+                            <label for="presentieid">Presentie</label>
+                            <br>
+                            <select>
+                                <option value="" disabled selected></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s8">
+                            <i class="material-icons prefix">comment</i>
+                            <textarea id="icon_prefix2" class="materialize-textarea" name="comment" id="commentaar"></textarea>
+                            <label for="icon_prefix2">Commentaar</label>
+                        </div>
+                            <br>
+                            <p>
+                            <label>
+                            <input class="with-gap" name="group3" type="radio" id="type" checked />
+                            <span>Positief</span>
+                            </label>
+                            <br>
+                            <label>
+                            <input class="with-gap" name="group3" type="radio" id="type" />
+                            <span>Negatief</span>
+                            </label>
+                            </p>
+                    </div>
+                    <button class="btn waves-effect waves-light footertext, nav" type="submit" name="action">Opslaan</button> 
+                </form>              
+ 
+            </div>
+        </div>
+        <div class="modal-footer">
+           
+        </div>
+    </div>
+
 
     <!-- materialize js -->
     <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>

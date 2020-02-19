@@ -37,3 +37,34 @@
     position: absolute;
     z-index: 9999;
 }
+.modal-header{
+    border-radius: 0 0 2px 2px;
+    color: white;
+    padding: 5px 8px;
+    height: 56px;
+    width: 100%;
+    text-align: left;
+}
+.icon{
+    float: right;
+    color:white;
+}
+.footertext{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: teal;
+}
+.footertext:hover{
+    color:rgb(2, 73, 73);
+}
+.style{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.style2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    font-weight: 300;
+}
