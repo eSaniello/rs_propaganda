@@ -13,7 +13,10 @@
         media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
 
- 
+
+    <!-- controller js -->
+    <script type="text/javascript" src="../controllers/main.js"></script>
+    <script type="text/javascript" src="../controllers/berichtController.js"></script>
 
 </head>
 
@@ -61,7 +64,7 @@
         </nav>
 
 
-        <ul id="slide-out" class="sidenav col s4" style="overflow: scroll;">
+        <ul id="slide_out" class="sidenav col s4" style="overflow: scroll;">
             <li>
                 <blockquote>
                     <p class="flow-text">Belangrijke Mededelingen</p>
@@ -71,68 +74,22 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <form autocomplete="off" onsubmit="return verstuurBericht()" id="berichtForm" name="berichtForm">
-                <div class="row">
-                    <div class="input-field col s11">
-                        <input placeholder="Bericht..." id="enter_message" type="text" class="validate" required>
-                        <label for="enter_message">Nieuw bericht</label>
-                        <button class="btn-small waves-effect waves-light red" type="submit" name="action">versturen
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-            </li>
-            <li>
-                <!-- Bericht 1 -->
-                <div class="row">
-                    <div class="card_width">
-                        <div class="card teal darken-1 card_edge">
-                            <div class="card-content white-text">
-                                <span class="card-title">Shaniel Samadhan</span>
-                                <p>Waddup all mi badmans and badgyals, all good wit ya'll bomboclaats?</p>
-                            </div>
-                            <div class="card-action">
-                                <p class="white-text">29-06-2020 01:30 AM</p>
-                            </div>
+                <form autocomplete="off" onsubmit="return verstuurBericht()" id="berichtForm" name="berichtForm"
+                    method="POST">
+                    <div class="row">
+                        <div class="input-field col s11">
+                            <input placeholder="Bericht..." id="bericht" name="bericht" type="text" class="validate"
+                                required>
+                            <label for="enter_message">Nieuw bericht</label>
+                            <button class="btn-small waves-effect waves-light red" type="submit" name="action">versturen
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li>
-                <!-- Bericht 2 -->
-                <div class="row">
-                    <div class="card_width">
-                        <div class="card teal darken-1 card_edge">
-                            <div class="card-content white-text">
-                                <span class="card-title">Andojo Mack</span>
-                                <p>It's ya boi McDoodle in the building!</p>
-                            </div>
-                            <div class="card-action">
-                                <p class="white-text">23-06-2020 11:00 AM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <!-- Bericht 3 -->
-                <div class="row">
-                    <div class="card_width">
-                        <div class="card teal darken-1 card_edge">
-                            <div class="card-content white-text">
-                                <span class="card-title">Kenson Latchmansing</span>
-                                <p>Gangaaa mie baka e hatie wooo. EJE! </p>
-                            </div>
-                            <div class="card-action">
-                                <p class="white-text">29-06-2020 12:30 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </li>
         </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger ">
+        <a href="#" data-target="slide_out" class="sidenav-trigger ">
             <i class="material-icons message_btn ">message</i>
         </a>
     </div>
@@ -199,10 +156,6 @@
         window.onload = redirectIfNoToken();
     </script>
 
-       <!-- controller js -->
-       <script type="text/javascript" src="../controllers/ressortController.js"></script>
-       <script type="text/javascript" src="../controllers/main.js"></script>
-       <script type="text/javascript" src="../controllers/berichtController.js"></script>
 </body>
 
 </html>

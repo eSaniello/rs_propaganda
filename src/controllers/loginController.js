@@ -24,16 +24,17 @@ function inloggen() {
   myHeaders.append('Content-Type', 'application/json');
 
   fetch('http://127.0.0.1:3000/api/gebruikers/login', {
-      method: 'POST',
-      headers: myHeaders,
-      mode: 'cors',
-      cache: 'default',
-      body: VALUE
-    })
+    method: 'POST',
+    headers: myHeaders,
+    mode: 'cors',
+    cache: 'default',
+    body: VALUE
+  })
     .then(data => data.json())
     .then(data => {
       if (data.token) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("gebruiker_id", data.gebruiker_id);
         window.location.replace("./src/views/dashboard.html");
 
       } else {
