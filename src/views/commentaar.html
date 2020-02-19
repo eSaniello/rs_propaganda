@@ -134,7 +134,7 @@
     </div>
 
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large btn modal-trigger nav" href="#modal_commentaar">
+        <a class="btn-floating btn-large btn modal-trigger nav" href="#modal_commentaar" onclick="getPresentie()">
             <i class="large material-icons">add</i>
         </a>
     </div>
@@ -172,7 +172,6 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <select name="presentie_id" id="presentie" required>
-                                    <option value= "">Paules</option>
                                 </select>
                                 <label for="presentie">Presentie</label>
                             </div>
@@ -204,22 +203,21 @@
             <div>
                 <div class="row">
                     <form class="col s12" method="POST" id="updateCommentaarForm" name="updateCommentaarForm"
-                        onsubmit="return updateCommentaar()">
+                        onsubmit="return updateCommentaarhi()">
                         <div class="row">
                             <div class="input-field col s6">
                                 <select name="presentie_id" id="updatePresentie">
-                                    <option value= "1">1</option>
                                 </select>
                                 <label for="presentie">Presentie</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <textarea id="commentaar" name="updateCommentaar" class="materialize-textarea"></textarea>
-                                <label for="commentaar">Commentaar</label>
+                                <textarea id="updateCommentaar" name="commentaar" class="materialize-textarea"></textarea>
+                                <label for="updateCommentaar">Commentaar</label>
                             </div>
                             <div class="input-field col s3">
-                                <select name="type" id="UpdateType" required>
+                                <select name="type" id="updateType" required>
                                     <option value="1">Positief</option>
                                     <option value="0">Negatief</option>
                                 </select>
@@ -240,6 +238,7 @@
     <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
     <script>
         M.AutoInit();
+        
         window.onload = redirectIfNoToken();
         window.onload = getCommentaar();
     </script>

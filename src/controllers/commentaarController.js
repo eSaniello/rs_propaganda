@@ -13,6 +13,73 @@ function token() {
     console.log(token);
 }
 
+function getPresentie() {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + tokenCommentaar);
+
+    fetch('http://127.0.0.1:3000/api/commentaar', {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            console.log(data.data.length);
+            if (data.data.length > 0) {
+                var body = "";
+                data.data.forEach(i => {
+                    let dropdown = document.getElementById('presentie');
+
+                    let option = document.createElement('option');
+                    option.setAttribute('value', `${i.presentie_id}`);
+                    option.textContent = i.naam;
+
+                    dropdown.appendChild(option);
+
+                })
+            }
+        })
+        .catch((err) => console.log(err))
+
+
+}
+
+function getUpdatePresentie() {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + tokenCommentaar);
+
+    fetch('http://127.0.0.1:3000/api/commentaar', {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            console.log(data.data.length);
+            if (data.data.length > 0) {
+                var body = "";
+                data.data.forEach(i => {
+                    let dropdown = document.getElementById('updatePresentie');
+
+                    let option = document.createElement('option');
+                    option.setAttribute('value', `${i.presentie_id}`);
+                    option.textContent = i.naam;
+
+                    dropdown.appendChild(option);
+
+                })
+            }
+        })
+        .catch((err) => console.log(err))
+
+
+}
+
+
 
 function getCommentaar() {
     const myHeaders = new Headers();
@@ -36,9 +103,9 @@ function getCommentaar() {
                     body += "<td>" + i.commentaar + "</td>";
                     body += "<td>" + i.naam + "</td>";
                     // body += "<td>" + i.type + "</td>";
-                    if(i.type == 0 ) {
+                    if (i.type == 0) {
                         body += "<td>Negatief</td>";
-            
+
                     }
                     else {
                         body += "<td>Positief</td>";
@@ -81,10 +148,20 @@ function createCommentaar() {
     })
 
         .then(res => res.json())
-        .then(res => {
-            console.log('Success', res);
-            location.reload();
+        .then(data => {
+            console.log(data);
+            console.log(data.data.length);
+            if (data.data.length > 0) {
+                data.data.forEach(i => {
+                    let dropdown = document.getElementById('presentie');
 
+                    let option = document.createElement('option');
+                    option.setAttribute('value', `${i.presentie_id}`);
+                    option.textContent = i.naam;
+
+                    dropdown.appendChild(option);
+                })
+            }
         })
         .catch((err) => {
             console.error(err);
@@ -121,6 +198,7 @@ function deleteCommentaar(td) {
 function getCommentaarByID(td) {
     id = getRowId(td);
     commentaarID = id;
+    getUpdatePresentie();
 
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + tokenCommentaar);
@@ -141,6 +219,7 @@ function getCommentaarByID(td) {
                 type = data.data.type;
 
                 document.getElementById('updatePresentie').value = presentie_id;
+                document.getElementById('commentaarID').value = commentaar_id;
                 document.getElementById('updateCommentaar').value = commentaar;
                 document.getElementById('updateType').value = type;
             }
@@ -149,7 +228,7 @@ function getCommentaarByID(td) {
     return commentaarID;
 }
 
-function updateCommentaar() {
+function updateCommentaarhi() {
     let form = document.forms["updateCommentaarForm"];
     let fd = new FormData(form);
     let data = {};
