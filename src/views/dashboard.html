@@ -190,42 +190,6 @@
         </div>
     </div>
 
-    <!--commentaar modal-->
-    <div id="modal_commentaar" class="modal">
-        <div class="modal-content">
-            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Commentaar</h3>
-            <br>
-            <div>
-                <div class="row">
-                    <form class="col s12" method="POST" id="commentaarForm" name="commentaarForm"
-                        onsubmit="return createCommentaar()">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <select name="presentie_id" id="presentie" required>
-                                    <option value="1">1</option>
-                                </select>
-                                <label for="presentie">Presentie</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <textarea id="commentaar" name="commentaar" class="materialize-textarea"></textarea>
-                                <label for="commentaar">Commentaar</label>
-                            </div>
-                            <div class="input-field col s3">
-                                <select name="type" id="type" required>
-                                    <option value="1">Positief</option>
-                                    <option value="0">Negatief</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- controller js -->
     <script type="text/javascript" src="../controllers/main.js"></script>
 

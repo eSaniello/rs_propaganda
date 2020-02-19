@@ -139,6 +139,27 @@
         </a>
     </div>
 
+      <!-- Commentaar Table -->
+      <div class="container">
+        <div class="row">
+            <div class="col s12" style="height: 28em; overflow: auto; width: auto;">
+                <table id="commentaarTable" class="highlight" style="width: 1000px;">
+                    <thead>
+                        <tr>
+                            <th>Commentaar ID</th>
+                            <th>Commentaar</th>
+                            <th>Naam</th>
+                            <th>type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="rTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <!--commentaar modal-->
     <div id="modal_commentaar" class="modal">
         <div class="modal-content">
@@ -151,7 +172,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <select name="presentie_id" id="presentie" required>
-                                    <option value="1">1</option>
+                                    <option value= "">Paules</option>
                                 </select>
                                 <label for="presentie">Presentie</label>
                             </div>
@@ -175,6 +196,42 @@
         </div>
     </div>
 
+    <!--updatecommentaar modal-->
+    <div id="modal_updatecommentaar" class="modal">
+        <div class="modal-content">
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Commentaar wijzigen</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" method="POST" id="updateCommentaarForm" name="updateCommentaarForm"
+                        onsubmit="return updateCommentaar()">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="presentie_id" id="updatePresentie">
+                                    <option value= "1">1</option>
+                                </select>
+                                <label for="presentie">Presentie</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <textarea id="commentaar" name="updateCommentaar" class="materialize-textarea"></textarea>
+                                <label for="commentaar">Commentaar</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <select name="type" id="UpdateType" required>
+                                    <option value="1">Positief</option>
+                                    <option value="0">Negatief</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- controller js -->
     <script type="text/javascript" src="../controllers/commentaarController.js"></script>
     <script type="text/javascript" src="../controllers/main.js"></script>
@@ -184,6 +241,7 @@
     <script>
         M.AutoInit();
         window.onload = redirectIfNoToken();
+        window.onload = getCommentaar();
     </script>
 </body>
 
