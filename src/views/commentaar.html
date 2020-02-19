@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+
+    <!-- Materialize CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../../lib/materialize//css/materialize.min.css"
+        media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../../src/style/main.css" media="screen,projection" />
+
+</head>
+
+<body class="blue lighten-4">
+    <div class="row">
+        <!-- Nav Bar -->
+        <nav class="nav_height">
+            <div class="nav-wrapper nav" style="padding-left: 10px;">
+                <!-- Image Logo -->
+                <div>
+                    <a href="./dashboard.html">
+                        <img id="logo" class="brand-logo" src="../../media/logo.png" style="height: auto; width: 50px;">
+                    </a>
+                </div>
+                <!-- Navigation  -->
+                <div class="nav-wrapper">
+                    <!-- Menu Dropdown Structure -->
+                    <div>
+                        <ul id="menu" class="dropdown-content">
+                            <li><a href="./commentaar.html">Commentaar</a></li>
+                            <li><a href="./presentie.html">Presentie</a></li>
+                            <li><a href="./ressort.html">Ressort</a></li>
+                            <li><a href="#!">Vergadering</a></li>
+                        </ul>
+                        <ul id="instellingen" class="dropdown-content">
+                            <li><a href="#!">Accounts</a></li>
+                            <li><a href="#!">Profiel</a></li>
+                            <li><a href="#!">Nieuw Account</a></li>
+                            <li class="divider"></li>
+                            <li><a onclick="logout()">Uitloggen</a></li>
+                        </ul>
+                    </div>
+                    <!-- Dropdowns Button -->
+                    <ul class="hide-on-med-and-down right">
+                        <li><a class="dropdown-trigger" data-target="menu">Menu<i
+                                    class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+                        <li><a class="dropdown-trigger" data-target="instellingen">Instellingen<i
+                                    class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <ul id="slide-out" class="sidenav col s4" style="overflow: scroll;">
+            <li>
+                <blockquote>
+                    <p class="flow-text">Belangrijke Mededelingen</p>
+                </blockquote>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input placeholder="Bericht..." id="enter_message" type="text" class="validate">
+                        <label for="enter_message">Nieuw bericht</label>
+                        <button class="btn-small waves-effect waves-light red" type="button" name="action">versturen
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Bericht 1 -->
+                <div class="row">
+                    <div class="card_width">
+                        <div class="card teal darken-1 card_edge">
+                            <div class="card-content white-text">
+                                <span class="card-title">Shaniel Samadhan</span>
+                                <p>Waddup all mi badmans and badgyals, all good wit ya'll bomboclaats?</p>
+                            </div>
+                            <div class="card-action">
+                                <p class="white-text">29-06-2020 01:30 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Bericht 2 -->
+                <div class="row">
+                    <div class="card_width">
+                        <div class="card teal darken-1 card_edge">
+                            <div class="card-content white-text">
+                                <span class="card-title">Andojo Mack</span>
+                                <p>It's ya boi McDoodle in the building!</p>
+                            </div>
+                            <div class="card-action">
+                                <p class="white-text">23-06-2020 11:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Bericht 3 -->
+                <div class="row">
+                    <div class="card_width">
+                        <div class="card teal darken-1 card_edge">
+                            <div class="card-content white-text">
+                                <span class="card-title">Kenson Latchmansing</span>
+                                <p>Gangaaa mie baka e hatie wooo. EJE! </p>
+                            </div>
+                            <div class="card-action">
+                                <p class="white-text">29-06-2020 12:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger ">
+            <i class="material-icons message_btn ">message</i>
+        </a>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large btn modal-trigger nav" href="#modal_commentaar" onclick="getPresentie()">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+      <!-- Commentaar Table -->
+      <div class="container">
+        <div class="row">
+            <div class="col s12" style="height: 28em; overflow: auto; width: auto;">
+                <table id="commentaarTable" class="highlight" style="width: 1000px;">
+                    <thead>
+                        <tr>
+                            <th>Commentaar ID</th>
+                            <th>Commentaar</th>
+                            <th>Naam</th>
+                            <th>type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="rTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--commentaar modal-->
+    <div id="modal_commentaar" class="modal">
+        <div class="modal-content">
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Commentaar</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" method="POST" id="commentaarForm" name="commentaarForm"
+                        onsubmit="return createCommentaar()">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="presentie_id" id="presentie" required>
+                                </select>
+                                <label for="presentie">Presentie</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <textarea id="commentaar" name="commentaar" class="materialize-textarea"></textarea>
+                                <label for="commentaar">Commentaar</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <select name="type" id="type" required>
+                                    <option value="1">Positief</option>
+                                    <option value="0">Negatief</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--updatecommentaar modal-->
+    <div id="modal_updatecommentaar" class="modal">
+        <div class="modal-content">
+            <h3 style="font-family: 'Anton', sans-serif; text-align: center;">Commentaar wijzigen</h3>
+            <br>
+            <div>
+                <div class="row">
+                    <form class="col s12" method="POST" id="updateCommentaarForm" name="updateCommentaarForm"
+                        onsubmit="return updateCommentaarhi()">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select name="presentie_id" id="updatePresentie">
+                                </select>
+                                <label for="presentie">Presentie</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <textarea id="updateCommentaar" name="commentaar" class="materialize-textarea"></textarea>
+                                <label for="updateCommentaar">Commentaar</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <select name="type" id="updateType" required>
+                                    <option value="1">Positief</option>
+                                    <option value="0">Negatief</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light, nav" type="submit" name="action">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- controller js -->
+    <script type="text/javascript" src="../controllers/commentaarController.js"></script>
+    <script type="text/javascript" src="../controllers/main.js"></script>
+
+    <!-- materialize js -->
+    <script type="text/javascript" src="../../lib/materialize/js/materialize.min.js"></script>
+    <script>
+        M.AutoInit();
+        
+        window.onload = redirectIfNoToken();
+        window.onload = getCommentaar();
+    </script>
+</body>
+
+</html>
